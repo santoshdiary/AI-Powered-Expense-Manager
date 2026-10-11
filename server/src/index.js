@@ -19,6 +19,11 @@ app.use("/api/ai", aiRoutes);
 
 const port = process.env.PORT || 5000;
 
+if (!process.env.JWT_SECRET?.trim()) {
+  console.error("JWT_SECRET is required. Add it to server/.env.");
+  process.exit(1);
+}
+
 //-------db connection logic-------------
 
 
